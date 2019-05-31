@@ -11,6 +11,7 @@ public class Main {
         if (args.length != 2) {
             System.out.println("Usaeg: java Main randomseed1 randomseed2");
             System.out.println("Example: java Main 314 15");
+            System.exit(0);
         }
 
         int seed1 = Integer.parseInt(args[0]);
@@ -19,7 +20,7 @@ public class Main {
         Player player1 = new Player("Trao",new WinningStrategy(seed1));
         Player player2 = new Player("Hana",new PropStrategy(seed2));
 
-        for (int i = 0 ; i < 1000; i++) {
+        for (int i = 0 ; i < 10000; i++) {
             Hand nextHand1 = player1.nextHand();
             Hand nextHand2 = player2.nextHand();
             if (nextHand1.isStrongThan(nextHand2)) {
